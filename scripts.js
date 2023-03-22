@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     userInput.value = "";
 
     try {
-      const response = await fetch("https://your-backend-url.com/chat", {
+      const response = await fetch("https://webgpttestwebapp.azurewebsites.net/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
