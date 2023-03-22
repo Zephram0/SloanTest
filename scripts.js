@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatForm = document.getElementById("chat-form");
   const userInput = document.getElementById("user-input");
   const chatBox = document.getElementById("chat-box");
+  let chatLog = "";
 
   chatForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     messageElement.textContent = `You: ${message}`;
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
+    chatLog += `You: ${message}\n`;
   }
 
   function displayGptMessage(message) {
@@ -43,5 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
     messageElement.textContent = `GPT: ${message}`;
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
+    chatLog += `GPT: ${message}\n`;
   }
 });
