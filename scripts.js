@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ 
+          user_message: message, 
+          chat_log: chatLog
+        }),
       });
 
       if (!response.ok) throw new Error("Failed to fetch GPT response");
