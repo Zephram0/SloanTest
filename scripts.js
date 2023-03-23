@@ -33,21 +33,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function displayUserMessage(message) {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("chat-message", "user-message");
-    messageElement.textContent = `You: ${message}`;
-    chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight;
-    chatLog += `You: ${message}\n`;
-  }
+function displayUserMessage(message) {
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("message-container", "user-message");
+
+  const nameElement = document.createElement("div");
+  nameElement.classList.add("message-sender");
+  nameElement.textContent = "You";
+
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message-text");
+  messageElement.textContent = message;
+
+  messageContainer.appendChild(nameElement);
+  messageContainer.appendChild(messageElement);
+  chatBox.appendChild(messageContainer);
+  chatBox.scrollTop = chatBox.scrollHeight;
+  chatLog += `You: ${message}\n`;
+}
 
   function displayGptMessage(message) {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("chat-message", "gpt-message");
-    messageElement.textContent = `GPT: ${message}`;
-    chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight;
-    chatLog += `GPT: ${message}\n`;
-  }
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("message-container", "gpt-message");
+
+  const nameElement = document.createElement("div");
+  nameElement.classList.add("message-sender");
+  nameElement.textContent = "GPT";
+
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message-text");
+  messageElement.textContent = message;
+
+  messageContainer.appendChild(nameElement);
+  messageContainer.appendChild(messageElement);
+  chatBox.appendChild(messageContainer);
+  chatBox.scrollTop = chatBox.scrollHeight;
+  chatLog += `GPT: ${message}\n`;
+}
 });
